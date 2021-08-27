@@ -1,6 +1,5 @@
 #!/bin/bash
 
-disk=$1
+LVM_VG=$1
 
-echo "Show Mount Point
-pvs | grep ${disk} | awk '{print}'
+/usr/sbin/lvdisplay ${LVM_VG[0]} | awk '{ if( $2 == "Path" ) print $3 }'
